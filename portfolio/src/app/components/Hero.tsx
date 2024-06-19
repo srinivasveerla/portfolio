@@ -1,27 +1,29 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
-export default function Home() {
+export default function Hero() {
   return (
     <Box
       sx={{
+        // backgroundColor: "red",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
+        paddingTop:"15vh",
+        paddingLeft:"4vw",        
+        height: "80vh",
+
       }}
     >
       <Box
+      //padding={1}
         sx={{
           position: "relative",
-          top: "-10%",
-          left: "-10%",
           display: "flex",
           flexDirection: "column",
         }}
       >
-        <Typography variant="h4" sx={{ mb: 2 }}>
-          Hey There! I'm Srinivas (Sh-ri)...
+        <Typography variant="h4" >
+          Hey There!
         </Typography>
+        <Typography variant="h4" sx={{ mb: 2 }}>I'm Srinivas(Sh-ri)...</Typography>
         <Typography variant="h5">I'm a Full Stack Developer</Typography>
         <Typography variant="h5">
           Interested in building software to solve everyday problems!!

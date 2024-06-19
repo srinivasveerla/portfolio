@@ -5,7 +5,7 @@ import { PaletteMode, createTheme, Container } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import AnimatedSection from "../animations/AnimatedSection";
 import Header from "./Header";
-import Home from "./Home";
+import Home from "./Hero";
 import Skills from "./Skills";
 import Education from "./Education";
 import Projects from "./Projects";
@@ -22,6 +22,15 @@ function App() {
     typography: {
       fontFamily: "monospace",
     },
+    breakpoints: {
+      values: {
+        xs: 400,
+        sm: 600,
+        md: 960,
+        lg: 99999999,
+        xl: 99999999,
+      },
+    },
   });
   function HandleChange() {
     setDarkMode((prevState) => {
@@ -32,7 +41,15 @@ function App() {
     <>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <Container sx={{ maxWidth:"100%"}}>
+        <Container
+          disableGutters
+          sx={{
+            // backgroundColor: "orange",
+            maxWidth: "80%",
+            minWidth: "600px",
+            //margin: "50px 50px",
+          }}
+        >
           <Header dark={darkMode} HandleChange={HandleChange} />
           <AnimatedSection>
             <Home />
@@ -47,11 +64,11 @@ function App() {
             <Education />
           </AnimatedSection>
           <AnimatedSection>
+            <WorkEx />
+          </AnimatedSection>
+          <AnimatedSection>
             <Projects />
           </AnimatedSection>
-          {/* <AnimatedSection>
-            <WorkEx />
-          </AnimatedSection> */}
           <AnimatedSection>
             <Footer />
           </AnimatedSection>

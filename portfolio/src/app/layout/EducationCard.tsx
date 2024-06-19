@@ -5,12 +5,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-export default function ElementCard({title,ListElements}) {
+export default function ElementCard({type,title,img,ListElements}) {
+  let width = type=="project"?700:400;
     return (
-        <Card sx={{ maxWidth: 345 }}>
+      
+        <Card sx={{ maxWidth: width }}>
       <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        sx={{ height: 140, }}
+        
+        image={img}
         title={title}
       />
       <CardContent>
@@ -19,13 +22,15 @@ export default function ElementCard({title,ListElements}) {
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          species, ranging across all continents except Antarctica and  Antarctica
+          Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica and  Antarctica
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+      {type=="project"?<CardActions>
+        <Button size="small">Github</Button>
+        <Button size="small">Demo</Button>
+      </CardActions>:null}
     </Card>
     );
 }

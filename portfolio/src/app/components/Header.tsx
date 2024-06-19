@@ -6,7 +6,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import CustomSwitch from "../layout/Swtich";
+import CustomSwitch from "../layout/Switch";
 
 interface Props {
   dark: boolean;
@@ -16,20 +16,19 @@ interface Props {
 export default function Header({ dark, HandleChange }: Props) {
   let theme = dark ? "121212" : "#fff";
   let logoTextColor = dark ? "#fff" : "#121212";
-  let logo = dark ? "/icon_dark.svg" : "/icon_default.svg";
   return (
     <AppBar
       position="static"
-      sx={{mt:3}}
+      sx={{mt:2,}}
       elevation={0}
 
     >
-      <Toolbar sx={{ backgroundColor: theme, width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <Toolbar sx={{ backgroundColor: theme, width: "100%", display: "flex", justifyContent: "space-between" }}>
         <Typography
           variant="h6"
           sx={{
             mr: 2,
-            display: { xs: "none", md: "flex"},
+            display:"flex",
             fontWeight: 700,
             letterSpacing: ".3rem",
             color: logoTextColor,
