@@ -1,9 +1,6 @@
 import React from "react";
-// import ElementCard from "../layout/ElementCard";
-import { Box, Grid, Typography } from "@mui/material";
-// import { useData } from "../context/DataContext";
+import { Box, Typography } from "@mui/material";
 import { Tab, Tabs } from "@mui/material";
-// import WorkExPage from "../layout/WorkExPage";
 
 interface TabPanelProps {
   children?: React.ReactNode;
