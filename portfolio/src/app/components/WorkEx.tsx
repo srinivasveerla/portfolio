@@ -2,7 +2,6 @@ import { Tab, Tabs, Typography } from "@mui/material";
 import React from "react";
 import Box from "@mui/material/Box";
 import WorkExPage from "../layout/WorkExPage";
-import PhoneIcon from '@mui/icons-material/Phone';
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -39,28 +38,23 @@ export default function WorkEx() {
   };
   return (
     <div
-    //style={{ backgroundColor: "blue" }}
+    style={{ paddingTop: "50px" }}
     >
       <Typography variant="h4" style={{ padding: "20px" }}>
         WORK EXPERIENCE
       </Typography>
-      <Box sx={{ display: "flex", borderColor: "divider", margin: "20px" }}>
+      <Box sx={{  borderColor: "divider", margin: "20px" }}>
         <Tabs
           value={value}
           onChange={handleChange}
-          //aria-label="basic tabs example"
-          style={{
-            maxWidth: "200px",
-          }}
-          orientation="vertical"
+          variant="fullWidth"
         >
-          <Tab icon={<PhoneIcon />} {...a11yProps(0)} />
+          <Tab label="WIPRO" sx={{ fontSize: "16px"}} {...a11yProps(0)} />
         </Tabs>
         <CustomTabPanel value={value} index={0}>
           <WorkExPage
             titles_descs={[
               { title: "Frontend Developer", desc: "WIPRO",skills:["React","Redux","JQuery","Blazor"] },
-              { title: ".NET Developer", desc: "WIPRO",skills:["React","Redux","JQuery","Blazor"] },
             ]}
           />
         </CustomTabPanel>

@@ -22,7 +22,11 @@ export default function Skills() {
   const backend = [{ name: "Django" }, { name: ".NET" }];
   return (
     <div
-    style={{ justifyContent: "center" }}
+      style={{
+        justifyContent: "center",
+        // backgroundColor: "blue",
+        paddingTop: "50px",
+      }}
     >
       <Typography
         variant="h4"
@@ -36,7 +40,13 @@ export default function Skills() {
       <Grid
         container
         gap={3}
-        style={{ display: "flex", maxWidth: "1000px", justifyContent: "center", padding: "20px", paddingTop: "0px" }}
+        style={{
+          display: "flex",
+          maxWidth: "1000px",
+          justifyContent: "center",
+          padding: "20px",
+          paddingTop: "0px",
+        }}
         sx={{ flexDirection: { xs: "column", md: "row" } }}
       >
         <Grid

@@ -24,14 +24,14 @@ export default function Hero() {
           Hey There!
         </Typography>
         <Typography variant="h4" sx={{ mb: 2 }}>I'm Srinivas(Sh-ri)...</Typography>
-        <Typography variant="h5">I'm a Full Stack Developer</Typography>
-        <Typography variant="h5">
-          Interested in building software to solve everyday problems!!
+        <Typography variant="h6">I'm a Computer Science Graduate from the University at Buffalo.</Typography>
+        <Typography variant="h6">
+         I'm actively looking for fulltime SDE opportunities. If you have an opening that I could be a good fit for, let's connect!
         </Typography>
         <Box sx={{ display: "flex", gap: 2, mt: 5 }}>
-          <Button variant="contained">LinkedIn</Button>
-          <Button variant="contained">Mail</Button>
-          <Button variant="contained">Github</Button>
+          <Button href="https://www.linkedin.com/in/srinivas-veerla" target="_blank" variant="contained">LinkedIn</Button>
+          <Button href="mailto:dssrinivas.veerla@gmail.com" variant="contained">Mail</Button>
+          <Button href="https://github.com/srinivasveerla" target="_blank" variant="contained">Github</Button>
         </Box>
       </Box>
     </Box>

@@ -1,6 +1,6 @@
 import { Box, Tab, Tabs, Typography } from "@mui/material";
 import React from "react";
-import EducationCard from "../layout/EducationCard";
+import ElementCard from "../layout/ElementCard";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -38,9 +38,7 @@ export default function Projects() {
     setValue(newValue);
   };
   return (
-    <div
-    //style={{ backgroundColor: "blue" }}
-    >
+    <div>
       <Typography variant="h4" style={{ padding: "20px" }}>
         PROJECTS
       </Typography>
@@ -71,7 +69,7 @@ export default function Projects() {
           />
         </Tabs>
         <CustomTabPanel value={value} index={0}>
-          <EducationCard
+          <ElementCard
             type="project"
             title=""
             img="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
@@ -80,7 +78,7 @@ export default function Projects() {
           {/* <ProjectCard reverse={true} /> */}
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <EducationCard
+          <ElementCard
             type="project"
             title=""
             img="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
@@ -88,7 +86,7 @@ export default function Projects() {
           />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          <EducationCard
+          <ElementCard
             type="project"
             title=""
             img="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"

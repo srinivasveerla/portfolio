@@ -3,7 +3,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 export default function About() {
   return (
-    <div style={{ padding: "20px",  }}>
+    <div style={{ padding: "70px" }}>
       <Typography
         variant="h4"
         style={{
@@ -17,7 +17,12 @@ export default function About() {
         <Grid item xs md>
           <Typography
             variant="body1"
-            style={{ padding: "40px", width: "100%", minWidth: "300px", textAlign: "justify" }}
+            style={{
+              padding: "40px",
+              width: "100%",
+              minWidth: "300px",
+              textAlign: "justify",
+            }}
           >
             I am a frontend developer with 5 years of experience. I am
             passionate about creating beautiful and intuitive user experiences
@@ -47,8 +52,8 @@ export default function About() {
           <Card elevation={3}>
             <CardMedia
               sx={{ height: 300, width: 200 }}
-              image="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
-              title="The house from the offer."
+              image="/images/about.jpg"
+              //title="me"
             />
           </Card>
         </Grid>
