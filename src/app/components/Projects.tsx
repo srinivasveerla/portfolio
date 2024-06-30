@@ -69,11 +69,12 @@ export default function Projects() {
               sx={{ textAlign: "right" }}
               label={project.label}
               {...a11yProps(index)}
+              key={index}
             />
           ))}
         </Tabs>
         {projects.map((project, index) => (
-          <CustomTabPanel value={value} index={index}>
+          <CustomTabPanel value={value} index={index} key={index}>
             <ElementCard
               type="project"
               title={project.title}

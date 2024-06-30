@@ -36,7 +36,7 @@ export default function WorkExPage({ workExpInfo }) {
               }}
             >
               {e.skills.map((skill) => (
-                <ListItem sx={{ width: "auto" }}>{skill}</ListItem>
+                <ListItem sx={{ width: "auto" }} key={skill}>{skill}</ListItem>
               ))}
             </List>
           </div>

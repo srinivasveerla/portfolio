@@ -47,7 +47,7 @@ function App() {
     { component: <Projects />, id: "projects" },
   ];
 
-  window.addEventListener("scroll", (event) => {
+  window.addEventListener("scroll", () => {
     if (window.scrollY === 0) setShowNavUpBtn(false);
     if (!showNavUpBtn && window.scrollY !== 0) setShowNavUpBtn(true);
   });
@@ -67,7 +67,7 @@ function App() {
           {showNavUpBtn ? <NavigateHomeButton /> : null}
           <ResumeDownloadButton />
           {sections.map((el) => (
-            <AnimatedSection>
+            <AnimatedSection key={el.id}>
               <section id={el.id}>{el.component}</section>
             </AnimatedSection>
           ))}

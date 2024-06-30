@@ -59,6 +59,7 @@ export default function Skills() {
               flexDirection: "column",
               alignItems: "center",
             }}
+            key={el}
           >
             <AnimatedSection>
               <ElementPage title={el} ListElements={skills[el]} />
