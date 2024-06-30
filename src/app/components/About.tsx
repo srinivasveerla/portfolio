@@ -1,6 +1,7 @@
 import { Card, CardMedia, Typography } from "@mui/material";
 import React from "react";
 import Grid from "@mui/material/Grid";
+
 export default function About() {
   return (
     <div style={{ padding: "70px" }}>
@@ -8,7 +9,6 @@ export default function About() {
         variant="h4"
         style={{
           display: "flex",
-          //paddingBottom: "20px",
         }}
       >
         ABOUT ME
@@ -29,13 +29,6 @@ export default function About() {
             for web and mobile applications. I have a strong background in
             frontend development, and I am always looking for new opportunities
             to learn and grow.
-            {/* <p>-Specialisation 1</p>
-              <p>-Specialisation 1</p>
-              <p>-Specialisation 1</p>
-              <p>-Specialisation 1</p>
-              <p>-Specialisation 1</p>
-              <p>-Specialisation 1</p>
-              <p>-Specialisation 1</p> */}
           </Typography>
         </Grid>
         <Grid
@@ -53,7 +46,6 @@ export default function About() {
             <CardMedia
               sx={{ height: 300, width: 200 }}
               image="/images/about.jpg"
-              //title="me"
             />
           </Card>
         </Grid>

@@ -8,7 +8,6 @@ export default function Footer() {
                 style={{
                     display: "flex",
                     padding: "20px",
-                    // fontFamily:"sans-serif",
                     color:"gray",
                 }}
             >

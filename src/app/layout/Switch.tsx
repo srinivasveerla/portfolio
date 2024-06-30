@@ -51,11 +51,11 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 interface Props {
   checked: boolean;
-  HandleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function CustomSwitch({ checked, HandleChange }: Props) {
+export default function CustomSwitch({ checked, handleChange }: Props) {
   return (
-    <MaterialUISwitch sx={{ m: 1 }} checked={checked} onChange={HandleChange} />
+    <MaterialUISwitch sx={{ m: 1 }} checked={checked} onChange={handleChange} />
   );
 }

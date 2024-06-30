@@ -15,15 +15,15 @@ import { HashLink as Link } from "react-router-hash-link";
 import { Box } from "@mui/system";
 interface Props {
   dark: boolean;
-  HandleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Header({ dark, HandleChange }: Props) {
+export default function Header({ dark, handleChange }: Props) {
   const appBarColor = dark ? "121212" : "#fff";
   const logoTextColor = dark ? "#fff" : "#121212";
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const header_btn = [
+  const headerBtn = [
     { title: "About", link: "/#about" },
     { title: "Skills", link: "/#skills" },
     { title: "Education", link: "/#education" },
@@ -53,7 +53,7 @@ export default function Header({ dark, HandleChange }: Props) {
           right: "2rem",
         }}
       >
-        <CustomSwitch checked={dark} HandleChange={HandleChange} />
+        <CustomSwitch checked={dark} handleChange={handleChange} />
       </Box>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <Box
@@ -69,7 +69,7 @@ export default function Header({ dark, HandleChange }: Props) {
               width: "auto",
             }}
           >
-            {header_btn.map((e) => (
+            {headerBtn.map((e) => (
               <ListItem
                 key={e.title}
                 component={Link}
@@ -124,7 +124,7 @@ export default function Header({ dark, HandleChange }: Props) {
             width: "auto",
           }}
         >
-          {header_btn.map((e) => (
+          {headerBtn.map((e) => (
             <ListItem
               key={e.title}
               component={Link}
@@ -144,7 +144,7 @@ export default function Header({ dark, HandleChange }: Props) {
           ))}
         </List>
 
-        <CustomSwitch checked={dark} HandleChange={HandleChange} />
+        <CustomSwitch checked={dark} handleChange={handleChange} />
       </Toolbar>
     </AppBar>
   );

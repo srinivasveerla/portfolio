@@ -16,6 +16,7 @@ interface WorkExperience {
   company_name: string;
   role: string;
   duration: string;
+  desc: string;
   skills: string[];
 }
 
@@ -99,6 +100,7 @@ const initialData: Data = {
       company_name: "Wipro",
       role: "Software Developer",
       duration: "September 2020 - July 2022",
+      desc:"",
       skills: [
         "C#",
         "WPF",
