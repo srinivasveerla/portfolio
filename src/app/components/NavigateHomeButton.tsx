@@ -15,7 +15,7 @@ const NavigateHomeButton = () => (
       color: "primary.main",
       borderRadius: "20px",
     }}
-    onClick={() => window.scrollTo(0, 0)}
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
   >
     <ArrowCircleUpSharpIcon color="primary" />
   </Button>
