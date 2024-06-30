@@ -1,14 +1,7 @@
 import "./index.css";
 import React, { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import {
-  PaletteMode,
-  createTheme,
-  Container,
-  Button,
-  Typography,
-
-} from "@mui/material";
+import { PaletteMode, createTheme, Container } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import AnimatedSection from "../animations/AnimatedSection";
 import Header from "./Header";
@@ -19,10 +12,11 @@ import Projects from "./Projects";
 import WorkEx from "./WorkEx";
 import About from "./About";
 import Footer from "./Footer";
-import DownloadIcon from "@mui/icons-material/Download";
-import WiggleComponent from "../animations/WiggleComponent";
+import ResumeDownloadButton from "./ResumeDownloadButton";
+import NavigateHomeButton from "./NavigateHomeButton";
 function App() {
   const [darkMode, setDarkMode] = useState(true);
+  const [showNavUpBtn, setShowNavUpBtn] = useState(false);
   const darkTheme: PaletteMode = darkMode ? "dark" : "light";
   const theme = createTheme({
     palette: {
@@ -41,77 +35,43 @@ function App() {
       },
     },
   });
-  function HandleChange() {
-    setDarkMode((prevState) => {
-      return !prevState;
-    });
-  }
+  const handleChange = () => {
+    setDarkMode((prevState) => !prevState);
+  };
+  const sections = [
+    { component: <Home />, id: "home" },
+    { component: <About />, id: "about" },
+    { component: <Skills />, id: "skills" },
+    { component: <Education />, id: "education" },
+    { component: <WorkEx />, id: "workex" },
+    { component: <Projects />, id: "projects" },
+  ];
+
+  window.addEventListener("scroll", (event) => {
+    if (window.scrollY === 0) setShowNavUpBtn(false);
+    if (!showNavUpBtn && window.scrollY !== 0) setShowNavUpBtn(true);
+  });
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header dark={darkMode} HandleChange={HandleChange} />
+        <Header dark={darkMode} handleChange={handleChange} />
         <Container
           disableGutters
           sx={{
-            // backgroundColor: "orange",
             maxWidth: "80%",
             minWidth: "500px",
-            //margin: "50px 50px",
           }}
         >
-          <Button
-            style={{
-              position: "fixed",
-              bottom: "2rem",
-              right: "2rem",
-            }}
-            sx={{
-              color: "primary.main",
-              borderRadius: "20px",
-              borderWidth: "2px",
-              borderColor: "primary.main",
-            }}
-            variant="outlined"
-          >
-            <WiggleComponent>
-              <DownloadIcon sx={{ mr: 1 }} />
-            </WiggleComponent>
-            <Typography variant="body1" sx={{ mr: 1 }}>
-              Resume
-            </Typography>
-          </Button>
-          <AnimatedSection>
-            <Home />
-          </AnimatedSection>
-          <AnimatedSection>
-            <section id="about">
-              <About />
-            </section>
-          </AnimatedSection>
-          <AnimatedSection>
-            <section id="skills">
-              <Skills />
-            </section>
-          </AnimatedSection>
-          <AnimatedSection>
-            <section id="education">
-              <Education />
-            </section>
-          </AnimatedSection>
-          <AnimatedSection>
-            <section id="workex">
-              <WorkEx />
-            </section>
-          </AnimatedSection>
-          <AnimatedSection>
-            <section id="projects">
-              <Projects />
-            </section>
-          </AnimatedSection>
-          <AnimatedSection>
-            <Footer />
-          </AnimatedSection>
+          {showNavUpBtn ? <NavigateHomeButton /> : null}
+          <ResumeDownloadButton />
+          {sections.map((el) => (
+            <AnimatedSection>
+              <section id={el.id}>{el.component}</section>
+            </AnimatedSection>
+          ))}
+          <Footer />
         </Container>
       </ThemeProvider>
     </>
