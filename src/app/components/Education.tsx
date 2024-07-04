@@ -2,9 +2,12 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { Tab, Tabs } from "@mui/material";
 import CustomTabPanel from "./CustomTabPanel";
+import EducationComponent from "../layout/EducationComponent";
+import { useData } from "../context/DataContext";
 
 export default function Education() {
   const [value, setValue] = React.useState(0);
+  const educationData = useData().education;
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -18,36 +21,36 @@ export default function Education() {
   };
 
   return (
-    <div style={{ paddingTop: "50px" }}>
+    <div style={{ paddingTop: "60px", maxWidth: "1000px" }}>
       <Typography
         variant="h4"
         style={{
           display: "flex",
-          padding: "20px",
         }}
       >
         EDUCATION
       </Typography>
-      <Box sx={{ borderColor: "divider", margin: "20px" }}>
+      <Box sx={{ margin: "20px" }}>
         <Tabs value={value} onChange={handleChange} variant="fullWidth">
-          <Tab
-            label="Master's in Computer Science"
-            sx={{ fontSize: "16px" }}
-            {...a11yProps(0)}
-          />
-          <Tab
-            label="Bachelor's in Electronics and Communications"
-            wrapped
-            sx={{ fontSize: "16px" }}
-            {...a11yProps(1)}
-          />
+          {educationData.map((education, index) => (
+            <Tab
+              key={index}
+              label={education.degree_level}
+              sx={{ fontSize: "16px" }}
+              {...a11yProps(index)}
+            />
+          ))}
         </Tabs>
-        <CustomTabPanel value={value} index={0}>
-          Hi
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          Hello
-        </CustomTabPanel>
+        {educationData.map((education, index) => (
+          <CustomTabPanel
+            key={index}
+            value={value}
+            index={index}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <EducationComponent edu={education} />
+          </CustomTabPanel>
+        ))}
       </Box>
     </div>
   );

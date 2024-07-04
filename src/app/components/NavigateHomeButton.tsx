@@ -1,15 +1,16 @@
 import React from "react";
 import { Button } from "@mui/material";
-import ArrowCircleUpSharpIcon from "@mui/icons-material/ArrowCircleUpSharp";
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import WiggleComponent from "../animations/WiggleComponent";
 
-// import WiggleComponent from "../animations/WiggleComponent";
 
 const NavigateHomeButton = () => (
+  
   <Button
     style={{
       position: "fixed",
-      bottom: "2rem",
-      left: "2rem",
+      bottom: "3rem",
+      left: "3rem",
     }}
     sx={{
       color: "primary.main",
@@ -17,7 +18,9 @@ const NavigateHomeButton = () => (
     }}
     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
   >
-    <ArrowCircleUpSharpIcon color="primary" />
+    <WiggleComponent>
+    <KeyboardDoubleArrowUpIcon fontSize="large" />
+    </WiggleComponent>
   </Button>
 );
 
