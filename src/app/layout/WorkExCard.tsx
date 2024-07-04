@@ -2,14 +2,9 @@ import React from 'react';
 import { Typography, Card, CardContent, Grid, Chip, Box, chipClasses } from '@mui/material';
 import { Code as CodeIcon } from '@mui/icons-material';
 
-const WorkExperience = ({ experiences }) => {
+const WorkExCard = ({job, index}) => {
   return (
-    <Box sx={{ pt:"60px", maxWidth:"1000px" }}> 
-      <Typography variant="h4" style={{ paddingTop: "20px" }} gutterBottom>
-        WORK EXPERIENCE
-      </Typography>
-      {experiences.map((job, index) => (
-        <Card key={index} sx={{ m: 3, }}>
+    <Card key={index} sx={{ m: 3, }}>
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={8}>
@@ -44,9 +39,7 @@ const WorkExperience = ({ experiences }) => {
             </Box>
           </CardContent>
         </Card>
-      ))}
-    </Box>
   );
 };
 
-export default WorkExperience;
+export default WorkExCard;

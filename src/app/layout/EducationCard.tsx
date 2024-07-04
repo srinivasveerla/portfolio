@@ -9,10 +9,9 @@ import {
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 
-const EducationComponent = ({ edu }) => {
+const EducationCard = ({ edu }) => {
   return (
     <Paper elevation={3} sx={{ maxWidth: "800px" }}>
-      {/* {educations.map((edu, index) => ( */}
       <Card>
         <CardContent>
           <Box display="flex" flexDirection={"row"} alignItems={"center"}>
@@ -60,9 +59,8 @@ const EducationComponent = ({ edu }) => {
           </Box>
         </CardContent>
       </Card>
-      {/* ))} */}
     </Paper>
   );
 };
 
-export default EducationComponent;
+export default EducationCard;

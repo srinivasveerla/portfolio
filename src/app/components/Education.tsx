@@ -1,14 +1,13 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { Tab, Tabs } from "@mui/material";
-import CustomTabPanel from "./CustomTabPanel";
-import EducationComponent from "../layout/EducationComponent";
+import CustomTabPanel from "../layout/CustomTabPanel";
+import EducationComponent from "../layout/EducationCard";
 import { useData } from "../context/DataContext";
 
 export default function Education() {
   const [value, setValue] = React.useState(0);
-  const educationData = useData().education;
-
+ const educationData = useData().education;
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
