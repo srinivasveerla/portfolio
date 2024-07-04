@@ -5,7 +5,7 @@ import ProjectCard from "../layout/ProjectCard";
 import { useData } from "../context/DataContext";
 
 const Projects = () => {
-    const projects = useData().projects;
+  const projects = useData().projects;
   return (
     <Box sx={{ my: 4 }}>
       <Typography variant="h4" gutterBottom>

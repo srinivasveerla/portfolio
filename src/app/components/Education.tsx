@@ -19,6 +19,14 @@ export default function Education() {
     };
   };
 
+
+  const a11yProps = (index: number) => {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  };
+
   return (
     <div style={{ paddingTop: "60px", maxWidth: "1000px" }}>
       <Typography
