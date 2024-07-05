@@ -4,16 +4,15 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { PaletteMode, createTheme, Container } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import AnimatedSection from "../animations/AnimatedSection";
-import Header from "./Header";
-import Home from "./Hero";
-import Skills from "./Skills";
-import Education from "./Education";
-import Projects from "./Projects";
-import WorkEx from "./WorkEx";
-import About from "./About";
-import Footer from "./Footer";
-import ResumeDownloadButton from "./ResumeDownloadButton";
-import NavigateHomeButton from "./NavigateHomeButton";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import Education from "../components/Education";
+import About from "../components/About";
+import Footer from "../components/Footer";
+import ResumeDownloadButton from "../components/ResumeDownloadButton";
+import NavigateHomeButton from "../components/NavigateHomeButton";
+import WorkExperience from "../components/WorkExperience";
+import Projects from "../components/Projects";
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [showNavUpBtn, setShowNavUpBtn] = useState(false);
@@ -39,11 +38,10 @@ function App() {
     setDarkMode((prevState) => !prevState);
   };
   const sections = [
-    { component: <Home />, id: "home" },
+    { component: <Hero />, id: "home" },
     { component: <About />, id: "about" },
-    { component: <Skills />, id: "skills" },
     { component: <Education />, id: "education" },
-    { component: <WorkEx />, id: "workex" },
+    { component: <WorkExperience />, id: "workex" },
     { component: <Projects />, id: "projects" },
   ];
 
@@ -51,21 +49,20 @@ function App() {
     if (window.scrollY === 0) setShowNavUpBtn(false);
     if (!showNavUpBtn && window.scrollY !== 0) setShowNavUpBtn(true);
   });
-
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+
         <Header dark={darkMode} handleChange={handleChange} />
         <Container
           disableGutters
           sx={{
             maxWidth: "80%",
-            minWidth: "500px",
           }}
         >
           {showNavUpBtn ? <NavigateHomeButton /> : null}
-          <ResumeDownloadButton />
+          <ResumeDownloadButton  />
           {sections.map((el) => (
             <AnimatedSection key={el.id}>
               <section id={el.id}>{el.component}</section>
@@ -79,4 +76,3 @@ function App() {
 }
 
 export default App;
-

@@ -25,41 +25,44 @@ export default function Header({ dark, handleChange }: Props) {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const headerBtn = [
     { title: "About", link: "/#about" },
-    { title: "Skills", link: "/#skills" },
+    // { title: "Skills", link: "/#skills" },
     { title: "Education", link: "/#education" },
     { title: "WorkEx", link: "/#workex" },
     { title: "Projects", link: "/#projects" },
   ];
   const [open, setOpen] = React.useState(false);
 
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
+  const toggleDrawer = () => {
+    setOpen((open) => !open);
   };
   return isSmallScreen ? (
     <>
       <MenuIcon
         style={{
+          zIndex: 100,
           position: "fixed",
           top: "2rem",
           left: "2rem",
         }}
         sx={{ height: 40, width: 40, ml: 1, mt: 1 }}
-        onClick={toggleDrawer(true)}
+        onClick={toggleDrawer}
       />
       <Box
         style={{
           position: "fixed",
           top: "2rem",
           right: "2rem",
+          zIndex: 100,
         }}
       >
         <CustomSwitch checked={dark} handleChange={handleChange} />
       </Box>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
+      
+      <Drawer open={open} onClose={toggleDrawer}>
         <Box
           sx={{ width: 250 }}
           role="presentation"
-          onClick={toggleDrawer(false)}
+          onClick={toggleDrawer}
         >
           <List
             sx={{
@@ -90,7 +93,7 @@ export default function Header({ dark, handleChange }: Props) {
           </List>
         </Box>
       </Drawer>
-    </>
+      </>
   ) : (
     <AppBar position="sticky" sx={{ mt: 2 }} elevation={0}>
       <Toolbar

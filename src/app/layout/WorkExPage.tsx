@@ -45,3 +45,4 @@ export default function WorkExPage({ workExpInfo }) {
     </div>
   );
 }
+

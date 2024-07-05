@@ -1,40 +1,39 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
+import { useData } from "../context/DataContext";
 export default function Hero() {
+  const { name,linkedin,github,email,hero_about,pronunciation } = useData();
+  const mail = 'mailto:' + email;
   return (
     <Box
       sx={{
         display: "flex",
-        paddingTop: "15vh",
-        paddingLeft: "4vw",
-        height: "80vh",
+        py: 20,
+        minHeight: "100vh",
         flexDirection: "column",
         position: "relative",
       }}
     >
       <Typography variant="h4" sx={{ mb: 2 }}>
         Hey There! <br />
-        I'm Srinivas(Sh-ri)...
+        I'm <span style={{color: "#00b4d8"}}>{name}{pronunciation? pronunciation : ''}</span>
       </Typography>
-      <Typography variant="h6">
-        I'm a Computer Science Graduate from the University at Buffalo.
-        <br />
-        I'm actively looking for fulltime SDE opportunities. If you have an
-        opening that I could be a good fit for, let's connect!
+      <Typography variant="h6" sx={{whiteSpace: "pre-wrap"}}>
+        {hero_about}
       </Typography>
       <Box sx={{ display: "flex", gap: 2, mt: 5 }}>
         <Button
-          href="https://www.linkedin.com/in/srinivas-veerla"
+          href={linkedin}
           target="_blank"
           variant="contained"
         >
           LinkedIn
         </Button>
-        <Button href="mailto:dssrinivas.veerla@gmail.com" variant="contained">
+        <Button href={mail} variant="contained">
           Mail
         </Button>
         <Button
-          href="https://github.com/srinivasveerla"
+          href={github}
           target="_blank"
           variant="contained"
         >

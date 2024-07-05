@@ -1,40 +1,39 @@
 import { Card, CardMedia, Typography } from "@mui/material";
 import React from "react";
 import Grid from "@mui/material/Grid";
+import { useData } from "../context/DataContext";
+import DOMPurify from 'dompurify';
 
 export default function About() {
+  const about = DOMPurify.sanitize(useData().about_me);
   return (
-    <div style={{ padding: "70px" }}>
+    <div style={{ paddingTop: "70px" }}>
       <Typography
         variant="h4"
         style={{
+          paddingBottom: "30px",
           display: "flex",
         }}
       >
         ABOUT ME
       </Typography>
-      <Grid container spacing={2} style={{ justifyContent: "center" }}>
-        <Grid item xs md>
+      <Grid container spacing={1.5} style={{ alignItems: "center" }}>
+        <Grid item xs md={7}>
           <Typography
             variant="body1"
+            align="justify"
             style={{
-              padding: "40px",
-              width: "100%",
               minWidth: "300px",
-              textAlign: "justify",
+              whiteSpace: "pre-wrap",
             }}
+            dangerouslySetInnerHTML={{ __html: about }}
           >
-            I am a frontend developer with 5 years of experience. I am
-            passionate about creating beautiful and intuitive user experiences
-            for web and mobile applications. I have a strong background in
-            frontend development, and I am always looking for new opportunities
-            to learn and grow.
           </Typography>
         </Grid>
         <Grid
           item
           xs
-          md
+          md={5}
           sx={{
             display: "flex",
             flexDirection: "column",
